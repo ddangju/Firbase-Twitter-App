@@ -4,13 +4,16 @@ import { auth, onAuthStateChanged } from "myBase";
 // import firebase from "../myBase";
 
 function App() {
+  // console.log("apps");
   const [init, setInit] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-  console.log(onAuthStateChanged, "onAuthStateChanged");
+  // console.log(onAuthStateChanged, "onAuthStateChanged");
   useEffect(() => {
+    ///로그인을 감시하는 감시코드
     onAuthStateChanged(auth, (user) => {
       if (user) {
         //만약에 user가 들어온다면 ture이므로 Home이 보여진다.
+        // console.log(user, "user");
         setIsLogin(true);
       } else {
         ////user가 들어오는게 아니라면 false이므로 Auth가 보여진다.
